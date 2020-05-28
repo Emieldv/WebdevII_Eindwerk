@@ -4,9 +4,9 @@
 
 <div class="container">
     <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <img class="d-block mx-auto mb-4" src="../images/bandcamp_circle.png" alt="" width="72" height="72">
       <h2>Contact formulier</h2>
-      <p class="lead">Heeft u een vraag voor ons? Aarzel niet om ons te contacteren! Je kan ons berijken via onderstaand formulier.</p>
+      <p class="lead">Heeft u een vraag voor ons? Aarzel niet om ons te contacteren! Je kan ons bereiken via onderstaand formulier.</p>
     </div>
 
 <div class="row">
