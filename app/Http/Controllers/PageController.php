@@ -26,10 +26,6 @@ class PageController extends Controller
         return view('pages.about');
     }
 
-    public function contact() {
-        return view("pages.contact");
-    }
-
     public function privacy() {
         return view('pages.privacy');
     }

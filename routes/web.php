@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () { return view('layout');});
 
+Route::get('/contact', 'MailController@getContact')->name('contact');
+Route::post('/contact', 'MailController@postContact')->name('contact.save');
+
 Route::get('/', 'PageController@home')->name('home');
 Route::get('/news', 'PageController@news')->name('news');
 Route::get('/about', 'PageController@about')->name('about');
-Route::get('/contact', 'PageController@contact')->name('contact');
 Route::get('/donate', 'PageController@donate')->name('donate');
 Route::get('/privacy', 'PageController@privacy')->name('privacy');
