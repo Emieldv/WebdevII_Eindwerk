@@ -19,6 +19,14 @@
           <li class="nav-item active">
             <a class="nav-link" href="{{ route('donate') }}">Doneer</a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meer</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                @foreach ($pages as $page)
+            <a class="dropdown-item" href="/{{ $page->slug}}">{{ $page->title}}</a>
+                @endforeach
+            </div>
+          </li>
         </ul>
             <a class="nav-link" style="color: white;" href="{{ route('pages.index') }}">Dashboard</a>
       </div>

@@ -30,12 +30,12 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <div
                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Website pagina's</h1>
+                <h1 class="h2">Nieuws artikels</h1>
             </div>
 
             <div class="row">
                 <div class="col-12">
-                    <a class="btn btn-md btn-success col-md-12" href="{{ route('pages.create') }}">Pagina toevoegen</a>
+                    <a class="btn btn-md btn-success col-md-12" href="{{ route('news.create') }}">Artikel toevoegen</a>
                 </div>
             </div>
             <div class="row">
@@ -50,21 +50,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($pages as $page)
+                            @foreach($articles as $article)
                             <tr>
                                 <td>
-                                    {{$page->title}}
+                                    {{$article->title}}
                                 </td>
                                 <td>
-                                    {{ Str::limit($page->intro, 50) }}
+                                    {{ Str::limit($article->intro, 50) }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('pages.edit', $page) }}" class="btn btn-md btn-warning col-md-12">
+                                    <a href="{{ route('news.edit', $article) }}" class="btn btn-md btn-warning col-md-12">
                                         Edit
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('pages.delete', $page->id) }}" method="POST">
+                                    <form action="{{ route('news.delete', $article->id) }}" method="POST">
                                         {{ method_field('DELETE') }}
                                         @csrf
                                         <button type="submit" class="btn btn-md btn-danger col-md-12">Delete</button>
