@@ -2,35 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function home() {
 
-        $title ='end of the lesson';
-        $content = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quae blanditiis natus. Saepe suscipit sequi maiores, dolorum amet perspiciatis. Accusamus corrupti fugit ratione necessitatibus maxime perspiciatis ipsam assumenda exercitationem quod.';
+    public function getPage($slug) {
 
-        return view('pages.home', [
+        $page = Page::where('slug', $slug)->first();
+        if(!$page) abort('404');
 
-            'title' => $title,
-            'content' => $content
+        return view('templates.default', [
+            'page' => $page
         ]);
     }
 
-    public function news() {
-        return view('pages.news');
-    }
-
-    public function about() {
-        return view('pages.about');
-    }
-
-    public function privacy() {
-        return view('pages.privacy');
-    }
-
-    public function donate() {
-        return view('pages.donate');
-    }
 }

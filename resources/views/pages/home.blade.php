@@ -62,24 +62,24 @@
 
     <div class="row">
         <div class="col-lg-4">
-            <img src="images/emiel.jpeg" alt="Dit is emiel" class="bd-placeholder-img rounded-circle" width="140" height="140" preserveAspectRatio="xMidYMid slice">
-          <h2>Heading</h2>
+            <img src="images/newspaper-regular.svg" alt="newspaper" class="bd-placeholder-img" width="140" height="140" preserveAspectRatio="xMidYMid slice">
+          <h2>Nieuws</h2>
           <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="{{ route('news') }}" role="button">Nieuws &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <img src="images/emiel.jpeg" alt="Dit is emiel" class="bd-placeholder-img rounded-circle" width="140" height="140" preserveAspectRatio="xMidYMid slice">
-          <h2>Heading</h2>
+            <img src="images/donate-solid.svg" alt="donate" class="bd-placeholder-img " width="140" height="140" preserveAspectRatio="xMidYMid slice">
+          <h2>Donaties</h2>
           <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="{{ route('donate') }}" role="button">Doneer nu &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <img src="images/emiel.jpeg" alt="Dit is emiel" class="bd-placeholder-img rounded-circle" width="140" height="140" preserveAspectRatio="xMidYMid slice">
-          <h2>Heading</h2>
+            <img src="images/keyboard-regular.svg" alt="contact" class="bd-placeholder-img" width="140" height="140" preserveAspectRatio="xMidYMid slice">
+          <h2>Contact</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
+          <p><a class="btn btn-secondary" href="{{ route('contact') }}" role="button">Contacteer ons &raquo;</a></p>
+        </div>
+      </div>
 
     <!-- /END THE FEATURETTES -->
 

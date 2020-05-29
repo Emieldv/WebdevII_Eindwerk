@@ -13,9 +13,12 @@
     <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
 
         <!-- Bootstrap core CSS -->
-    <link href="./assets/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="./assets/dist/css/sticky-footer-navbar.css" rel="stylesheet">
-    <link href="./assets/dist/css/carousel.css" rel="stylesheet">
+    <link href={{ asset('assets/dist/css/bootstrap.css') }} rel="stylesheet">
+    <link href={{ asset('assets/dist/css/sticky-footer-navbar.css') }} rel="stylesheet">
+    <link href={{ asset('assets/dist/css/carousel.css') }} rel="stylesheet">
+
+    <script src="https://cdn.tiny.cloud/1/araccaks2aj6rbbuf24vfu1bxxt6ac28krhinatkh6eo1kv8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
 
 </head>
 <body>

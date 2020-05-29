@@ -3,6 +3,8 @@
 
 @include('partials.head')
 
+@yield('scripts')
+
 @include('partials.nav')
 
 @yield('content')
