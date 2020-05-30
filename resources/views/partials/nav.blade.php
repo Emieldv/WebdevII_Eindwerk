@@ -23,12 +23,14 @@
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meer</a>
             <div class="dropdown-menu" aria-labelledby="dropdown04">
                 @foreach ($pages as $page)
-            <a class="dropdown-item" href="/{{ $page->slug}}">{{ $page->title}}</a>
+                @if ($page->active == 1)
+                    <a class="dropdown-item" href="/{{ $page->slug}}">{{ $page->title}}</a>
+                @endif
                 @endforeach
             </div>
           </li>
         </ul>
-            <a class="nav-link" style="color: white;" href="{{ route('pages.index') }}">Dashboard</a>
+            <a class="nav-link" style="color: white;" href="{{ route('dashboard.pages.index') }}">Dashboard</a>
       </div>
     </nav>
   </header>

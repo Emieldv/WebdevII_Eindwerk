@@ -19,7 +19,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="{{ route('news.create') }} " method="post">
+            <form action="{{ route('dashboard.news.create') }} " method="post">
                 @csrf
 
                 <input type="hidden" name="id">

@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
 
             $table->text('intro')->nullable();
             $table->text('content')->nullable();
+            $table->string('image');
 
             $table->tinyInteger('active')->default(1);
 

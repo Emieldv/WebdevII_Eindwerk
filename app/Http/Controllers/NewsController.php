@@ -10,7 +10,7 @@ class NewsController extends Controller
 {
     public function getNews() {
 
-        $articles = Article::all();
+        $articles = Article::orderBy('id', 'desc')->paginate(4);
 
         return view('pages.news', [
             'articles' => $articles
@@ -29,7 +29,7 @@ class NewsController extends Controller
 
     public function getIndexNews() {
 
-        $articles = Article::all();
+        $articles = Article::orderBy('id', 'desc')->get();
 
         return view('dashboard.news.index', [
             'articles' => $articles
@@ -43,14 +43,15 @@ class NewsController extends Controller
 
     public function postCreateNews(Request $r) {
 
-        $page = new Article();
-        $page->title = $r->title;
-        $page->slug = Str::snake($r->title);
-        $page->intro = $r->intro;
-        $page->content = $r->content;
-        $page->save();
+        $article = new Article();
+        $article->title = $r->title;
+        $article->slug = Str::snake($r->title);
+        $article->intro = $r->intro;
+        $article->content = $r->content;
+        $article->active = $r->active;
+        $article->save();
 
-        return redirect(route("news.index"));
+        return redirect(route("dashboard.news.index"));
 
     }
 
@@ -67,9 +68,10 @@ class NewsController extends Controller
         $article->slug = Str::snake($r->title);
         $article->intro = $r->intro;
         $article->content = $r->content;
+        $article->active = $r->active;
         $article->save();
 
-        return redirect(route("news.index"));
+        return redirect(route("dashboard.news.index"));
 
     }
 
@@ -77,7 +79,7 @@ class NewsController extends Controller
 
         Article::destroy($id);
 
-        return redirect()->route('news.index');
+        return redirect()->route('dashboard.news.index');
 
     }
 }

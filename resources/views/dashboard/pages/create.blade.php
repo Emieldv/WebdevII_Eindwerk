@@ -19,7 +19,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="{{ route('pages.create') }} " method="post">
+            <form action="{{ route('dashboard.pages.create') }} " method="post">
                 @csrf
 
                 <input type="hidden" name="id">

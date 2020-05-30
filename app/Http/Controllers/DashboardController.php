@@ -30,9 +30,10 @@ class DashboardController extends Controller
         $page->slug = Str::snake($r->title);
         $page->intro = $r->intro;
         $page->content = $r->content;
+        $page->active = $r->active;
         $page->save();
 
-        return redirect(route("pages.index"));
+        return redirect(route("dashboard.pages.index"));
 
     }
 
@@ -49,9 +50,10 @@ class DashboardController extends Controller
         $page->slug = Str::snake($r->title);
         $page->intro = $r->intro;
         $page->content = $r->content;
+        $page->active = $r->active;
         $page->save();
 
-        return redirect(route("pages.index"));
+        return redirect(route("dashboard.pages.index"));
 
     }
 
@@ -59,7 +61,7 @@ class DashboardController extends Controller
 
         Page::destroy($id);
 
-        return redirect()->route('pages.index');
+        return redirect()->route('dashboard.pages.index');
 
     }
 }

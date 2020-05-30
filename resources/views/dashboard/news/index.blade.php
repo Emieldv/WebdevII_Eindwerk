@@ -12,13 +12,13 @@
                 </h5>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('pages.index') }}">
+                    <a class="nav-link active" href="{{ route('dashboard.pages.index') }}">
                             <span data-feather="home"></span>
                             Website pagina's<span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('news.index') }}">
+                        <a class="nav-link" href="{{ route('dashboard.news.index') }}">
                             <span data-feather="file"></span>
                             Nieuws
                         </a>
@@ -35,7 +35,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <a class="btn btn-md btn-success col-md-12" href="{{ route('news.create') }}">Artikel toevoegen</a>
+                    <a class="btn btn-md btn-success col-md-12" href="{{ route('dashboard.news.create') }}">Artikel toevoegen</a>
                 </div>
             </div>
             <div class="row">
@@ -45,8 +45,10 @@
                             <tr>
                                 <th>Titel</th>
                                 <th>Intro</th>
-                                <th>Actions</th>
+                                <th>Acties</th>
                                 <th></th>
+                                <th>Zichtbaarheid</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -56,19 +58,26 @@
                                     {{$article->title}}
                                 </td>
                                 <td>
-                                    {{ Str::limit($article->intro, 50) }}
+                                    {{ Str::limit($article->intro, 40) }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('news.edit', $article) }}" class="btn btn-md btn-warning col-md-12">
+                                    <a href="{{ route('dashboard.news.edit', $article) }}" class="btn btn-md btn-warning col-md-12">
                                         Edit
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('news.delete', $article->id) }}" method="POST">
+                                    <form action="{{ route('dashboard.news.delete', $article->id) }}" method="POST">
                                         {{ method_field('DELETE') }}
                                         @csrf
                                         <button type="submit" class="btn btn-md btn-danger col-md-12">Delete</button>
                                     </form>
+                                </td>
+                                <td>
+                                @if ($article->active == 1)
+                                    <p class="btn btn-md btn-success col-md-10">Actief</p>
+                                @else
+                                    <p class="btn btn-md btn-danger col-md-10">Inactief</p>
+                                @endif
                                 </td>
                             </tr>
                             @endforeach

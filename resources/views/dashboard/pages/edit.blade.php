@@ -26,7 +26,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="{{ route('pages.edit', $page->id) }}" method="post">
+            <form action="{{ route('dashboard.pages.edit', $page->id) }}" method="post">
                 @csrf
 
                 <input type="hidden" name="id" value="{{ $page->id }}">

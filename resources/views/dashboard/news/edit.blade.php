@@ -26,7 +26,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="{{ route('news.edit', $article->id) }}" method="post">
+            <form action="{{ route('dashboard.news.edit', $article->id) }}" method="post">
                 @csrf
 
                 <input type="hidden" name="id" value="{{ $article->id }}">

@@ -12,13 +12,13 @@
                 </h5>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('pages.index') }}">
+                    <a class="nav-link active" href="{{ route('dashboard.pages.index') }}">
                             <span data-feather="home"></span>
                             Website pagina's<span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('news.index') }}">
+                        <a class="nav-link" href="{{ route('dashboard.news.index') }}">
                             <span data-feather="file"></span>
                             Nieuws
                         </a>
@@ -35,7 +35,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <a class="btn btn-md btn-success col-md-12" href="{{ route('pages.create') }}">Pagina toevoegen</a>
+                    <a class="btn btn-md btn-success col-md-12" href="{{ route('dashboard.pages.create') }}">Pagina toevoegen</a>
                 </div>
             </div>
             <div class="row">
@@ -45,8 +45,9 @@
                             <tr>
                                 <th>Titel</th>
                                 <th>Intro</th>
-                                <th>Actions</th>
+                                <th>Acties</th>
                                 <th></th>
+                                <th>Zichtbaarheid</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,20 +57,27 @@
                                     {{$page->title}}
                                 </td>
                                 <td>
-                                    {{ Str::limit($page->intro, 50) }}
+                                    {{ Str::limit($page->intro, 40) }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('pages.edit', $page) }}" class="btn btn-md btn-warning col-md-12">
+                                    <a href="{{ route('dashboard.pages.edit', $page) }}" class="btn btn-md btn-warning col-md-12">
                                         Edit
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('pages.delete', $page->id) }}" method="POST">
+                                    <form action="{{ route('dashboard.pages.delete', $page->id) }}" method="POST">
                                         {{ method_field('DELETE') }}
                                         @csrf
                                         <button type="submit" class="btn btn-md btn-danger col-md-12">Delete</button>
                                     </form>
                                 </td>
+                                <td>
+                                    @if ($page->active == 1)
+                                        <p class="btn btn-md btn-success col-md-8">Actief</p>
+                                    @else
+                                        <p class="btn btn-md btn-danger col-md-8">Inactief</p>
+                                    @endif
+                                    </td>
                             </tr>
                             @endforeach
                         </tbody>
