@@ -8,24 +8,6 @@ use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
-    public function getNews() {
-
-        $articles = Article::orderBy('id', 'desc')->paginate(4);
-
-        return view('pages.news', [
-            'articles' => $articles
-        ]);
-    }
-
-    public function getNewsDetail($slug) {
-
-        $article = Article::where('slug', $slug)->first();
-        if(!$article) abort('404');
-
-        return view('templates.news', [
-            'article' => $article
-        ]);
-    }
 
     public function getIndexNews() {
 

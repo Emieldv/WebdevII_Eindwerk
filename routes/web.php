@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'HomeController@home')->name('home');
 
-Route::get('/news', 'NewsController@getNews')->name('news');
+Route::get('/news', 'PageController@getNews')->name('news');
 
 Route::get('/contact', 'MailController@getContact')->name('contact');
-Route::post('/contact', 'MailController@postContact')->name('contact.save');
 
 Route::get('/donate', 'DonationController@donate')->name('donate');
+Route::get('/betalen', 'DonationController@getMakePayment')->name('makePayment');
+Route::get('/success', 'DonationController@getSuccess')->name('paymentSuccess');
 
 Route::prefix('dashboard')->as('dashboard.')->group(function() {
 
@@ -40,5 +44,5 @@ Route::prefix('dashboard')->as('dashboard.')->group(function() {
 
 });
 
-Route::get('/news/{slug}', 'NewsController@getNewsDetail')->name('news.detail');
+Route::get('/news/{slug}', 'PageController@getNewsDetail')->name('news.detail');
 Route::get('/{slug}', 'PageController@getPage')->name('page');
