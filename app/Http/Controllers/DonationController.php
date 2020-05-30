@@ -9,7 +9,13 @@ use Mollie\Laravel\Facades\Mollie;
 class DonationController extends Controller
 {
     public function donate() {
-        return view('pages.donate');
+
+        $donations = Donation::orderBy('id', 'desc')->get();
+
+        return view('pages.donate',[
+
+            'donations' => $donations
+        ]);
     }
 
     public function getMakePayment(Request $r) {
@@ -22,7 +28,7 @@ class DonationController extends Controller
                 'value' => $price, // You must send the correct number of decimals, thus we enforce the use of strings
             ],
             'description' => 'Donation to app',
-            'webhookUrl' => 'http://899bb713f100.ngrok.io/api/webhooks/mollie',
+            'webhookUrl' => 'http://ea34910ed1fb.ngrok.io/api/webhooks/mollie',
             'redirectUrl' => route('paymentSuccess'),
             ]);
 

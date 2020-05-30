@@ -26,6 +26,8 @@ Route::get('/donate', 'DonationController@donate')->name('donate');
 Route::get('/betalen', 'DonationController@getMakePayment')->name('makePayment');
 Route::get('/success', 'DonationController@getSuccess')->name('paymentSuccess');
 
+Route::get('/newsletter', 'PageController@getNewsletter')->name('newsletter');
+
 Route::prefix('dashboard')->as('dashboard.')->group(function() {
 
     Route::get('/news/index', 'NewsController@getIndexNews')->name('news.index');
@@ -41,6 +43,8 @@ Route::prefix('dashboard')->as('dashboard.')->group(function() {
     Route::get('/pages/edit/{page}', 'DashboardController@getEditPage')->name('pages.edit');
     Route::post('/pages/edit/{page}', 'DashboardController@postEditPage')->name('pages.edit.post');
     Route::delete('/pages/delete{page}', 'DashboardController@postDeletePage')->name('pages.delete');
+
+    Route::get('/donations', 'DashboardController@getIndexDonations')->name('donations.index');
 
 });
 

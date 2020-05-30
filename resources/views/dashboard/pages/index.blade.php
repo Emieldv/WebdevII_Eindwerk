@@ -12,7 +12,7 @@
                 </h5>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('dashboard.pages.index') }}">
+                        <a class="nav-link active" href="{{ route('dashboard.pages.index') }}">
                             <span data-feather="home"></span>
                             Website pagina's<span class="sr-only">(current)</span>
                         </a>
@@ -21,6 +21,12 @@
                         <a class="nav-link" href="{{ route('dashboard.news.index') }}">
                             <span data-feather="file"></span>
                             Nieuws
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.donations.index') }}">
+                            <span data-feather="file"></span>
+                            Donaties
                         </a>
                     </li>
                 </ul>
@@ -35,7 +41,8 @@
 
             <div class="row">
                 <div class="col-12">
-                    <a class="btn btn-md btn-success col-md-12" href="{{ route('dashboard.pages.create') }}">Pagina toevoegen</a>
+                    <a class="btn btn-md btn-success col-md-12" href="{{ route('dashboard.pages.create') }}">Pagina
+                        toevoegen</a>
                 </div>
             </div>
             <div class="row">
@@ -60,7 +67,8 @@
                                     {{ Str::limit($page->intro, 40) }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('dashboard.pages.edit', $page) }}" class="btn btn-md btn-warning col-md-12">
+                                    <a href="{{ route('dashboard.pages.edit', $page) }}"
+                                        class="btn btn-md btn-warning col-md-12">
                                         Edit
                                     </a>
                                 </td>
@@ -73,16 +81,15 @@
                                 </td>
                                 <td>
                                     @if ($page->active == 1)
-                                        <p class="btn btn-md btn-success col-md-8">Actief</p>
+                                    <p class="btn btn-md btn-success col-md-8">Actief</p>
                                     @else
-                                        <p class="btn btn-md btn-danger col-md-8">Inactief</p>
+                                    <p class="btn btn-md btn-danger col-md-8">Inactief</p>
                                     @endif
-                                    </td>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
             </div>
 

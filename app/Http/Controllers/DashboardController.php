@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Donation;
 use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -67,5 +68,14 @@ class DashboardController extends Controller
 
         return redirect()->route('dashboard.pages.index');
 
+    }
+
+    public function getIndexDonations() {
+
+        $donations = Donation::orderBy('id', 'desc')->get();
+
+        return view('dashboard.donations.index', [
+            'donations' => $donations
+        ]);
     }
 }

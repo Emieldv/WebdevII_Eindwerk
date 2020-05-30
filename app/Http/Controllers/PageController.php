@@ -38,4 +38,9 @@ class PageController extends Controller
         ]);
     }
 
+    public function getNewsletter() {
+
+        return view('pages.newsletter');
+    }
+
 }

@@ -8,6 +8,10 @@ use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function getIndexNews() {
 
@@ -30,6 +34,7 @@ class NewsController extends Controller
         $article->slug = Str::snake($r->title);
         $article->intro = $r->intro;
         $article->content = $r->content;
+        $article->image = $r->image;
         $article->active = $r->active;
         $article->save();
 
@@ -50,6 +55,7 @@ class NewsController extends Controller
         $article->slug = Str::snake($r->title);
         $article->intro = $r->intro;
         $article->content = $r->content;
+        $article->image = $r->image;
         $article->active = $r->active;
         $article->save();
 

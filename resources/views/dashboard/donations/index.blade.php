@@ -12,7 +12,7 @@
                 </h5>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('dashboard.pages.index') }}">
+                        <a class="nav-link active" href="{{ route('dashboard.pages.index') }}">
                             <span data-feather="home"></span>
                             Website pagina's<span class="sr-only">(current)</span>
                         </a>
@@ -36,60 +36,49 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <div
                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Nieuws artikels</h1>
+                <h1 class="h2">Donaties</h1>
             </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <a class="btn btn-md btn-success col-md-12" href="{{ route('dashboard.news.create') }}">Artikel toevoegen</a>
-                </div>
-            </div>
             <div class="row">
                 <div class="col">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Titel</th>
-                                <th>Intro</th>
-                                <th>Acties</th>
-                                <th></th>
+                                <th>€</th>
+                                <th>Door</th>
+                                <th>E-mail</th>
+                                <th>Bericht</th>
                                 <th>Zichtbaarheid</th>
-
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($articles as $article)
-                            <tr>
-                                <td>
-                                    {{$article->title}}
-                                </td>
-                                <td>
-                                    {{ Str::limit($article->intro, 40) }}
-                                </td>
-                                <td>
-                                    <a href="{{ route('dashboard.news.edit', $article) }}" class="btn btn-md btn-warning col-md-12">
-                                        Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="{{ route('dashboard.news.delete', $article->id) }}" method="POST">
-                                        {{ method_field('DELETE') }}
-                                        @csrf
-                                        <button type="submit" class="btn btn-md btn-danger col-md-12">Delete</button>
-                                    </form>
-                                </td>
-                                <td>
-                                @if ($article->active == 1)
-                                    <p class="btn btn-md btn-success col-md-10">Actief</p>
-                                @else
-                                    <p class="btn btn-md btn-danger col-md-10">Inactief</p>
+                            @foreach($donations as $donation)
+                                @if ($donation->payment_status === "Paid")
+                                    <tr>
+                                        <td>
+                                            {{$donation->price}}
+                                        </td>
+                                        <td>
+                                            {{ $donation->name }}
+                                        </td>
+                                        <td>
+                                            {{ $donation->email }}
+                                        </td>
+                                        <td>
+                                            {{ $donation->description }}
+                                        </td>
+                                        <td>
+                                            @if ($donation->active == 1)
+                                            <p class="btn btn-md btn-success col-md-8">Actief</p>
+                                            @else
+                                            <p class="btn btn-md btn-danger col-md-8">Anoniem</p>
+                                            @endif
+                                        </td>
+                                    </tr>
                                 @endif
-                                </td>
-                            </tr>
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
             </div>
 

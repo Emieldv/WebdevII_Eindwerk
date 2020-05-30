@@ -15,15 +15,13 @@
     @foreach ($articles as $article)
     @if ($article->active == 1)
     <div class="row featurette">
-        <div class="col-md-7 order-md-2">
+        <div class="col-md-7 order-md-0">
             <h2 class="featurette-heading">{{ $article->title }}</h2>
             <p class="lead">{{ $article->intro }}</p>
             <a class="btn btn-sm btn-primary" href="/news/{{ $article->slug}}" role="button">Read more</a>
         </div>
-        <div class="col-md-5 order-md-1">
-            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                src="https://visibilityreseller.com/wp-content/uploads/2020/01/akrales_190918_3645_0166.jpg" width="500"
-                height="500" alt="">
+        <div class="col-md-4 order-md-1 featurette-box" width="400" height="400">
+            <img class="featurette-image" width="400" height="400" src={{ $article->image }} alt="">
         </div>
     </div>
 

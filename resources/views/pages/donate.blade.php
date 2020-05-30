@@ -86,7 +86,56 @@
                 <button type="submit" class="btn btn-lg btn-block btn-primary">Doneer</button>
             </form>
         </div>
-
     </div>
+</div>
+
+<p class="lead py-4 text-center">Deze mensen hebben al gedoneerd! Bedankt!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>€</th>
+                        <th>Door</th>
+                        <th>Bericht</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($donations as $donation)
+                        @if ($donation->payment_status === "Paid")
+                            @if ($donation->active == 1)
+                            <tr>
+                                <td>
+                                    {{$donation->price}}
+                                </td>
+                                <td>
+                                    {{ $donation->name }}
+                                </td>
+                                <td>
+                                    {{ $donation->description }}
+                                </td>
+                            </tr>
+                            @else
+                            <tr>
+                                <td>
+                                    {{$donation->price}}
+                                </td>
+                                <td>
+                                    Anoniem
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            @endif
+                        @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
     @endsection
