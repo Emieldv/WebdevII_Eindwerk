@@ -28,7 +28,7 @@ class DonationController extends Controller
                 'value' => $price, // You must send the correct number of decimals, thus we enforce the use of strings
             ],
             'description' => 'Donation to app',
-            'webhookUrl' => 'http://ea34910ed1fb.ngrok.io/api/webhooks/mollie',
+            'webhookUrl' => 'http://bf900f89673a.ngrok.io/api/webhooks/mollie',
             'redirectUrl' => route('paymentSuccess'),
             ]);
 

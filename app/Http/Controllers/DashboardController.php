@@ -30,6 +30,15 @@ class DashboardController extends Controller
 
     public function postCreatePage(Request $r) {
 
+        $validationRules = [
+            'title' => 'required|max:100',
+            'intro' => 'required|max:1000',
+            'content' => 'required',
+            'active' => 'required|in:1,0',
+        ];
+
+        $r->validate($validationRules);
+
         $page = new Page();
         $page->title = $r->title;
         $page->slug = Str::snake($r->title);
@@ -50,6 +59,15 @@ class DashboardController extends Controller
     public function postEditPage(Page $page, Request $r) {
 
         if($r->id != $page->id) abort('403', 'Sloeber, dat mag helemaal niet!');
+
+        $validationRules = [
+            'title' => 'required|max:100',
+            'intro' => 'required|max:1000',
+            'content' => 'required',
+            'active' => 'required|in:1,0',
+        ];
+
+        $r->validate($validationRules);
 
         $page->title = $r->title;
         $page->slug = Str::snake($r->title);

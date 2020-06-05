@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('content')
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

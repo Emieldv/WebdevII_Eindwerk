@@ -24,6 +24,19 @@
             <h3>Pagina Bewerken</h3>
         </div>
     </div>
+    @if($errors->any())
+          <div class="alert-danger">
+          <ul>
+
+          @foreach($errors->all() as $error)
+          <li>
+          {{ $error }}
+          </li>
+          @endforeach
+
+          </ul>
+          </div>
+          @endif
     <div class="row">
         <div class="col">
             <form action="{{ route('dashboard.pages.edit', $page->id) }}" method="post">
@@ -33,7 +46,7 @@
 
                 <div class="form-group">
                     <label for="title">Paginatitel</label>
-                <input value="{{ $page->title }}" type="text" class="form-control" id="title" name ="title" placeholder="Place title here" required>
+                <input value="{{ $page->title }}" type="text" class="form-control" id="title" name ="title" placeholder="Place title here">
                 </div>
                 <div class="form-group">
                     <label for="active">Actief</label>
@@ -45,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <label for="intro">Intro</label>
-                    <textarea class="form-control" id="intro" name="intro" rows="5" required>{{ $page->intro }}</textarea>
+                    <textarea id="intro" name="intro" rows="5" class="form-control @error('intro') invalid @enderror">{{ $page->intro }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="content">Inhoud</label>

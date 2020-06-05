@@ -21,6 +21,7 @@ Route::get('/', 'HomeController@home')->name('home');
 Route::get('/news', 'PageController@getNews')->name('news');
 
 Route::get('/contact', 'MailController@getContact')->name('contact');
+Route::post('/contact', 'MailController@postContact')->name('contact.save');
 
 Route::get('/donate', 'DonationController@donate')->name('donate');
 Route::get('/betalen', 'DonationController@getMakePayment')->name('makePayment');
@@ -30,7 +31,7 @@ Route::get('/newsletter', 'PageController@getNewsletter')->name('newsletter');
 
 Route::prefix('dashboard')->as('dashboard.')->group(function() {
 
-    Route::get('/news/index', 'NewsController@getIndexNews')->name('news.index');
+    Route::get('/news', 'NewsController@getIndexNews')->name('news.index');
     Route::get('/news/create', 'NewsController@getCreateNews')->name('news.create');
     Route::post('/news/create', 'NewsController@postCreateNews')->name('news.create.post');
     Route::get('/news/edit/{article}', 'NewsController@getEditNews')->name('news.edit');

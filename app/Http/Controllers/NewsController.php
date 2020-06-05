@@ -29,6 +29,15 @@ class NewsController extends Controller
 
     public function postCreateNews(Request $r) {
 
+        $validationRules = [
+            'title' => 'required|max:100',
+            'intro' => 'required|max:1000',
+            'content' => 'required',
+            'active' => 'required|in:1,0',
+            'image' => 'required',
+        ];
+
+        $r->validate($validationRules);
         $article = new Article();
         $article->title = $r->title;
         $article->slug = Str::snake($r->title);
@@ -50,6 +59,17 @@ class NewsController extends Controller
     public function postEditNews(Article $article, Request $r) {
 
         if($r->id != $article->id) abort('403', 'Sloeber, dat mag helemaal niet!');
+
+        $validationRules = [
+            'title' => 'required|max:100',
+            'intro' => 'required|max:1000',
+            'content' => 'required',
+            'active' => 'required|in:1,0',
+            'image' => 'required',
+
+        ];
+
+        $r->validate($validationRules);
 
         $article->title = $r->title;
         $article->slug = Str::snake($r->title);
