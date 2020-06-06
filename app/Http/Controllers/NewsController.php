@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class NewsController extends Controller
@@ -34,16 +35,21 @@ class NewsController extends Controller
             'intro' => 'required|max:1000',
             'content' => 'required',
             'active' => 'required|in:1,0',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
 
         $r->validate($validationRules);
+
+        $path = Storage::putFileAs(
+            'public/images/uploads', $r->file('image'), Str::snake($r->title)
+        );
+
         $article = new Article();
         $article->title = $r->title;
         $article->slug = Str::snake($r->title);
         $article->intro = $r->intro;
         $article->content = $r->content;
-        $article->image = $r->image;
+        $article->image = Str::snake($r->title);
         $article->active = $r->active;
         $article->save();
 
@@ -65,8 +71,6 @@ class NewsController extends Controller
             'intro' => 'required|max:1000',
             'content' => 'required',
             'active' => 'required|in:1,0',
-            'image' => 'required',
-
         ];
 
         $r->validate($validationRules);
@@ -75,7 +79,6 @@ class NewsController extends Controller
         $article->slug = Str::snake($r->title);
         $article->intro = $r->intro;
         $article->content = $r->content;
-        $article->image = $r->image;
         $article->active = $r->active;
         $article->save();
 
@@ -83,8 +86,9 @@ class NewsController extends Controller
 
     }
 
-    public function postDeleteNews($id) {
+    public function postDeleteNews($id, $image) {
 
+        Storage::delete("public/images/uploads/".$image);
         Article::destroy($id);
 
         return redirect()->route('dashboard.news.index');

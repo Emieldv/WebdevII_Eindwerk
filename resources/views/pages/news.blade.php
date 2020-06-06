@@ -21,7 +21,7 @@
             <a class="btn btn-sm btn-primary" href="/news/{{ $article->slug}}" role="button">Read more</a>
         </div>
         <div class="col-md-4 order-md-1 featurette-box" width="400" height="400">
-            <img class="featurette-image" width="400" height="400" src={{ $article->image }} alt="">
+            <img class="featurette-image" width="400" height="400" src="images/uploads/{{ $article->image}}" alt="">
         </div>
     </div>
 

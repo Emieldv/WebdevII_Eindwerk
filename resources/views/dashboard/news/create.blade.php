@@ -32,7 +32,7 @@
           @endif
     <div class="row">
         <div class="col">
-            <form action="{{ route('dashboard.news.create') }} " method="post">
+            <form enctype="multipart/form-data" action="{{ route('dashboard.news.create') }} " method="post">
                 @csrf
 
                 <input type="hidden" name="id">
@@ -55,11 +55,11 @@
                 </div>
                 <div class="form-group">
                     <label for="content">Inhoud</label>
-                    <textarea id="content" name="content">{{ old('content') }}</textarea>
+                    <textarea id="content" class="form-control" name="content">{{ old('content') }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="title">Foto URL</label>
-                    <input type="text" class="form-control" id="image" name ="image" placeholder="Paste image url here"  value="{{ old('image') }}">
+                    <label for="title">Upload foto</label>
+                    <input type="file" name="image" id="image">
                 </div>
 
                 <button class="btn btn-md btn-success col-md-12" type="submit">

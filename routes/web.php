@@ -36,7 +36,7 @@ Route::prefix('dashboard')->as('dashboard.')->group(function() {
     Route::post('/news/create', 'NewsController@postCreateNews')->name('news.create.post');
     Route::get('/news/edit/{article}', 'NewsController@getEditNews')->name('news.edit');
     Route::post('/news/edit/{article}', 'NewsController@postEditNews')->name('news.edit.post');
-    Route::delete('/news/delete{article}', 'NewsController@postDeleteNews')->name('news.delete');
+    Route::delete('/news/delete{article}/{image}', 'NewsController@postDeleteNews')->name('news.delete');
 
     Route::get('/pages', 'DashboardController@getIndexPages')->name('pages.index');
     Route::get('/pages/create', 'DashboardController@getCreatePage')->name('pages.create');

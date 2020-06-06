@@ -12,7 +12,7 @@
             <hr class="featurette-divider">
 <div class="row">
     <div class="col-md-4">
-        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src={{ $article->image }} width="500" height="500" alt="">
+        <img class="featurette-image" width="400" height="400" src="../images/uploads/{{ $article->image}}" alt="">
     </div>
 
     <div class="col-md-8">

@@ -63,10 +63,6 @@
                     <label for="content">Inhoud</label>
                     <textarea id="content" name="content">{{ $article->content }}</textarea>
                 </div>
-                <div class="form-group">
-                    <label for="title">Foto URL</label>
-                <input value="{{ $article->image }}" type="text" class="form-control" id="image" name ="image" placeholder="Paste image url here">
-                </div>
 
                 <button class="btn btn-md btn-success col-md-12" type="submit">
                     Bewerkingen opslaan

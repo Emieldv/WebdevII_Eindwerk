@@ -72,7 +72,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('dashboard.news.delete', $article->id) }}" method="POST">
+                                    <form action="{{ route('dashboard.news.delete', array($article->id, $article->image)) }}" method="POST">
                                         {{ method_field('DELETE') }}
                                         @csrf
                                         <button type="submit" class="btn btn-md btn-danger col-md-12">Delete</button>
