@@ -28,6 +28,7 @@ Route::get('/betalen', 'DonationController@getMakePayment')->name('makePayment')
 Route::get('/success', 'DonationController@getSuccess')->name('paymentSuccess');
 
 Route::get('/newsletter', 'PageController@getNewsletter')->name('newsletter');
+// Route::post('/newsletter', 'NewsletterController@subscribe')->name('newsletter.subscride');
 
 Route::prefix('dashboard')->as('dashboard.')->group(function() {
 
